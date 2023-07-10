@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Multipe Files With Ajax</title>
+</head>
+
+<body>
+    <h1>Upload Multipe Files With Ajax<h1>
+            <input type="file" id="inpFile" multiple>
+            <button id="btnUpload">Upload Files</button>
+</body>
+<!-- Javscript -->
+<script type="text/javascript">
+    const inpFile = document.getElementById("inpFile"),
+        btnUpload = document.getElementById("btnUpload");
+
+    btnUpload.addEventListener("click", () => {
+        const xhr = new XMLHttpRequest();
+        const formData = new FormData();
+
+        console.log(inpFile.files)
+        for (const file of inpFile.files) {
+            formData.append("myFiles[]", file);
+        }
+        console.log(formData.get('myFiles[]'))
+        xhr.open("POST", "upload.php");
+        xhr.send(formData);
+
+    })
+</script>
+
+</html>

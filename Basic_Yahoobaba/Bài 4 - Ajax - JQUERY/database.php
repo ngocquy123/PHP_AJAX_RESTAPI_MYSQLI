@@ -1,0 +1,1 @@
+<?php  $conn = new mysqli('localhost',"root",'','jquery-ajax-yahoobaba') or die('kết nối thất bại'); ?>
